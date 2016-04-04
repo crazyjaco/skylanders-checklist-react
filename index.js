@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { render } from 'react-dom'
-import Header from './components/Header'
-import ListCharacters from './components/ListCharacters'
+import { Router, Route, hashHistory } from 'react-router'
+import ListPage from './components/ListPage'
 import './scss/style.scss'
 
 render(
-	<div className="body">
-		<Header />
-		<ListCharacters path="data/characters.json" />
-	</div>,	document.getElementById('character-list')
+	<Router history={hashHistory}>
+		<Route path="/" component={ListPage}/>
+	</Router>,	
+	document.getElementById('app')
 )
